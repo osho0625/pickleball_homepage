@@ -5,670 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>関東地区ピックル会｜クラブ公式サイト</title>
   <meta name="description" content="関東地区ピックル会の公式サイト。活動内容、練習スケジュール、参加方法、問い合わせ先をご案内します。" />
-  <style>
-    :root{
-      --bg: #0b1020;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --border: rgba(255,255,255,.14);
-      --accent: #7dd3fc;   /* sky */
-      --accent2:#a78bfa;   /* violet */
-      --good:#34d399;      /* green */
-      --warn:#fbbf24;      /* amber */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 28px;
-      --max: 1080px;
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 15% 10%, rgba(125,211,252,.20), transparent 60%),
-        radial-gradient(900px 700px at 90% 15%, rgba(167,139,250,.18), transparent 60%),
-        radial-gradient(1000px 900px at 50% 110%, rgba(52,211,153,.10), transparent 55%),
-        var(--bg);
-      line-height: 1.65;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
-
-    .container{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
-
-    /* Header */
-    header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(11,16,32,.65);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 0;
-      gap: 12px;
-    }
-    .brand{
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 220px;
-    }
-    .logo{
-      width: 38px; height: 38px;
-      border-radius: 12px;
-      background:
-        linear-gradient(135deg, rgba(125,211,252,.9), rgba(167,139,250,.9));
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,.25);
-    }
-    .brand-title{
-      display: flex; flex-direction: column;
-      line-height: 1.1;
-    }
-    .brand-title strong{ font-size: 14px; letter-spacing: .04em; }
-    .brand-title span{ font-size: 12px; color: var(--muted); }
-
-    nav ul{
-      list-style: none;
-      display: flex;
-      gap: 14px;
-      padding: 0;
-      margin: 0;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    nav a{
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    nav a:hover{
-      border-color: var(--border);
-      background: rgba(255,255,255,.05);
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .cta{
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      white-space: nowrap;
-    }
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 600;
-      font-size: 13px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.18);
-      text-decoration: none;
-    }
-    .btn:hover{ background: rgba(255,255,255,.10); text-decoration: none; }
-    .btn-primary{
-      border-color: rgba(125,211,252,.35);
-      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(167,139,250,.18));
-    }
-    .btn-primary:hover{
-      background: linear-gradient(135deg, rgba(125,211,252,.30), rgba(167,139,250,.24));
-    }
-
-    /* Hero */
-    .hero{
-      padding: 54px 0 26px;
-    }
-    .hero-grid{
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    .hero-card{
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius2);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card:before{
-      content:"";
-      position:absolute; inset:-120px -80px auto auto;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle at 30% 30%, rgba(125,211,252,.35), transparent 60%),
-                  radial-gradient(circle at 70% 60%, rgba(167,139,250,.28), transparent 60%);
-      transform: rotate(20deg);
-      filter: blur(0px);
-      pointer-events: none;
-    }
-
-    .kicker{
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      font-size: 12px;
-      color: var(--muted);
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      padding: 8px 10px;
-      border-radius: 999px;
-      margin-bottom: 12px;
-    }
-    .dot{
-      width: 8px; height: 8px;
-      border-radius: 999px;
-      background: var(--good);
-      box-shadow: 0 0 0 6px rgba(52,211,153,.12);
-    }
-
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(24px, 3.5vw, 40px);
-      letter-spacing: .02em;
-      line-height: 1.15;
-    }
-    .lead{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 62ch;
-    }
-
-    .hero-actions{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .side{
-      display: grid;
-      gap: 12px;
-    }
-    .mini{
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .mini h3{ margin: 0 0 8px; font-size: 14px; }
-    .mini p{ margin: 0; color: var(--muted); font-size: 13px; }
-    .pill{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-    .pill b{ color: var(--text); }
-
-    /* Sections */
-    section{
-      padding: 26px 0;
-    }
-    .section-title{
-      display:flex; align-items: baseline; justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .section-title h2{
-      margin: 0;
-      font-size: 18px;
-      letter-spacing: .02em;
-    }
-    .section-title p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .card{
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .card h3{ margin: 0 0 8px; font-size: 14px; }
-    .card p{ margin: 0; color: var(--muted); font-size: 13px; }
-
-    .features{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .feat{
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius);
-      padding: 16px;
-      min-height: 120px;
-    }
-    .feat .icon{
-      width: 34px; height: 34px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-    .feat h3{ margin: 0 0 6px; font-size: 14px; }
-    .feat p{ margin: 0; color: var(--muted); font-size: 13px; }
-
-    /* Schedule table */
-    table{
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
-    }
-    th, td{
-      padding: 12px 12px;
-      border-bottom: 1px solid rgba(255,255,255,.10);
-      font-size: 13px;
-      vertical-align: top;
-    }
-    th{
-      text-align: left;
-      color: var(--muted);
-      font-weight: 700;
-      background: rgba(255,255,255,.05);
-    }
-    tr:last-child td{ border-bottom: 0; }
-    .tag{
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size: 12px;
-      gap: 6px;
-    }
-    .tag.good{ border-color: rgba(52,211,153,.28); color: rgba(207,250,229,.92); }
-    .tag.warn{ border-color: rgba(251,191,36,.28); color: rgba(254,243,199,.92); }
-
-    /* Join */
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .step{
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .step .n{
-      display:inline-flex;
-      width: 28px; height: 28px;
-      border-radius: 10px;
-      align-items:center; justify-content:center;
-      background: rgba(125,211,252,.18);
-      border: 1px solid rgba(125,211,252,.28);
-      margin-bottom: 10px;
-      font-weight: 800;
-    }
-    .step h3{ margin: 0 0 6px; font-size: 14px; }
-    .step p{ margin: 0; color: var(--muted); font-size: 13px; }
-
-    /* Footer */
-    footer{
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
-      padding: 24px 0 40px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-    .foot{
-      display:flex;
-      gap: 12px;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    /* Responsive */
-    @media (max-width: 920px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .features{ grid-template-columns: 1fr; }
-      .steps{ grid-template-columns: 1fr; }
-      .grid-2{ grid-template-columns: 1fr; }
-      .brand{ min-width: auto; }
-      nav ul{ justify-content: flex-start; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="common.js"></script>
 </head>
-
 <body>
-<header>
-  <div class="container">
-    <div class="nav">
-      <a class="brand" href="#top">
-        <div class="logo" aria-hidden="true"></div>
-        <div class="brand-title">
-          <strong>関東地区ピックル会</strong>
-          <span>Pickle Club Kanto</span>
-        </div>
-      </a>
+  <div id="site-header"></div>
 
-      <nav aria-label="サイト内メニュー">
-        <ul>
-          <li><a href="#about">会について</a></li>
-          <li><a href="#schedule">練習日程</a></li>
-          <li><a href="#places">活動場所</a></li>
-          <li><a href="#join">参加方法</a></li>
-          <li><a href="#contact">問い合わせ</a></li>
-        </ul>
-      </nav>
+  <main>
+    <div class="container">
+      
+<section class="hero" aria-label="トップ">
+  <div class="hero-grid">
+    <div class="hero-card">
+      <div class="kicker"><span class="dot" aria-hidden="true"></span> みんなで楽しく、しっかり上達。</div>
+      <h1>関東地区ピックル会<br/>練習・交流・大会参加まで。</h1>
+      <p class="lead">
+        関東地区ピックル会は、初心者〜経験者まで幅広く参加できるクラブです。
+        基礎練習・ゲーム形式・交流会を中心に、無理なく続けられる活動を目指しています。
+      </p>
 
-      <div class="cta">
-        <a class="btn btn-primary" href="#join">体験参加する</a>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="schedule.html">直近の練習を見る</a>
+        <a class="btn" href="contact.html">問い合わせ</a>
+      </div>
+
+      <div class="pill" role="note">
+        <span>🎽 <b>対象</b>：初心者OK</span>
+        <span>📍 <b>地域</b>：関東（仮）</span>
+        <span>🕒 <b>頻度</b>：週1〜2回（仮）</span>
+      </div>
+    </div>
+
+    <div class="side" aria-label="サイド情報">
+      <div class="mini">
+        <h3>お知らせ</h3>
+        <p>・体験参加はいつでも歓迎です（要連絡）<br/>
+           ・大会参加や交流会も不定期で実施します（仮）</p>
+      </div>
+      <div class="mini">
+        <h3>持ち物</h3>
+        <p>動きやすい服装／室内シューズ（必要な場合）／飲み物。<br/>
+           ラケット等は体験用の貸出がある想定です（仮）。</p>
+      </div>
+      <div class="mini">
+        <h3>雰囲気</h3>
+        <p>ガチ勢だけの場ではありません。<br/>
+           「できる範囲で楽しく」を大事にしています。</p>
       </div>
     </div>
   </div>
-</header>
+</section>
 
-<main id="top">
-  <div class="container">
-    <section class="hero" aria-label="ヒーロー">
-      <div class="hero-grid">
-        <div class="hero-card">
-          <div class="kicker"><span class="dot" aria-hidden="true"></span> みんなで楽しく、しっかり上達。</div>
-          <h1>関東地区ピックル会<br/>練習・交流・大会参加まで。</h1>
-          <p class="lead">
-            関東地区ピックル会は、初心者〜経験者まで幅広く参加できるクラブです。
-            基礎練習・ゲーム形式・交流会を中心に、無理なく続けられる活動を目指しています。
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#schedule">直近の練習を見る</a>
-            <a class="btn" href="#contact">問い合わせ</a>
-          </div>
-
-          <div class="pill" role="note">
-            <span>��� <b>対象</b>：初心者OK</span>
-            <span>��� <b>地域</b>：関東（仮）</span>
-            <span>��� <b>頻度</b>：週1〜2回（仮）</span>
-          </div>
-        </div>
-
-        <div class="side" aria-label="サイド情報">
-          <div class="mini">
-            <h3>お知らせ</h3>
-            <p>・体験参加はいつでも歓迎です（要連絡）<br/>
-               ・大会参加や交流会も不定期で実施します（仮）</p>
-          </div>
-          <div class="mini">
-            <h3>持ち物</h3>
-            <p>動きやすい服装／室内シューズ（必要な場合）／飲み物。<br/>
-               ラケット等は体験用の貸出がある想定です（仮）。</p>
-          </div>
-          <div class="mini">
-            <h3>雰囲気</h3>
-            <p>ガチ勢だけの場ではありません。<br/>
-               「できる範囲で楽しく」を大事にしています。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" aria-label="会について">
-      <div class="section-title">
-        <h2>会について</h2>
-        <p>目的・活動方針・レベル感</p>
-      </div>
-
-      <div class="features">
-        <div class="feat">
-          <div class="icon" aria-hidden="true">���</div>
-          <h3>基礎を大事に</h3>
-          <p>フォーム、フットワーク、連携を丁寧に。上達の近道は地味さに宿ります。</p>
-        </div>
-        <div class="feat">
-          <div class="icon" aria-hidden="true">���</div>
-          <h3>交流も楽しむ</h3>
-          <p>初参加でも馴染める雰囲気づくり。ゲーム形式で自然に仲良くなれます。</p>
-        </div>
-        <div class="feat">
-          <div class="icon" aria-hidden="true">���</div>
-          <h3>大会参加もOK</h3>
-          <p>希望者は大会・練習試合へ。目標があると練習が楽しくなります。</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="schedule" aria-label="練習日程">
-      <div class="section-title">
-        <h2>練習日程（例）</h2>
-        <p>※実際の予定に合わせて更新してください</p>
-      </div>
-
-      <div class="card" style="margin-bottom:12px;">
-        <h3>直近の練習</h3>
-        <p>「場所」「時間」「持ち物」「参加可否」をここにまとめると、初参加の人が迷いません。</p>
-      </div>
-
-      <table aria-label="練習スケジュール表">
-        <thead>
-          <tr>
-            <th style="width: 18%;">日付</th>
-            <th style="width: 20%;">時間</th>
-            <th style="width: 22%;">場所</th>
-            <th>内容</th>
-            <th style="width: 14%;">状態</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>2026/xx/xx（土）</td>
-            <td>10:00 - 12:00</td>
-            <td>○○体育館（仮）</td>
-            <td>基礎練習＋ゲーム形式</td>
-            <td><span class="tag good">募集中</span></td>
-          </tr>
-          <tr>
-            <td>2026/xx/xx（日）</td>
-            <td>14:00 - 16:00</td>
-            <td>△△コート（仮）</td>
-            <td>ダブルス練習／ミニ交流戦</td>
-            <td><span class="tag good">募集中</span></td>
-          </tr>
-          <tr>
-            <td>2026/xx/xx（祝）</td>
-            <td>—</td>
-            <td>—</td>
-            <td>イベント（調整中）</td>
-            <td><span class="tag warn">調整中</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="places" aria-label="活動場所">
-      <div class="section-title">
-        <h2>活動場所</h2>
-        <p>主な練習場所や集合方法</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>主な会場（例）</h3>
-          <p>
-            ・○○体育館（最寄り：□□駅）<br/>
-            ・△△公園コート（最寄り：◇◇駅）<br/>
-            ・××スポーツセンター（最寄り：☆☆駅）<br/>
-            <small style="color: var(--muted);">※住所・地図リンクを貼ると親切です。</small>
-          </p>
-        </div>
-        <div class="card">
-          <h3>集合の目安</h3>
-          <p>
-            開始10分前を目安に集合。初参加の方は迷いやすいので、連絡をもらえれば入口で合流できます（仮）。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="join" aria-label="参加方法">
-      <div class="section-title">
-        <h2>参加方法</h2>
-        <p>初めての方へ（体験参加の流れ）</p>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="n">1</div>
-          <h3>問い合わせ</h3>
-          <p>下のフォーム（またはSNS）から「体験参加希望」と連絡してください。</p>
-        </div>
-        <div class="step">
-          <div class="n">2</div>
-          <h3>日程調整</h3>
-          <p>参加可能な練習日を案内します。レベル・年齢なども軽く確認（仮）。</p>
-        </div>
-        <div class="step">
-          <div class="n">3</div>
-          <h3>当日参加</h3>
-          <p>動きやすい服装でOK。必要なら道具も貸出します（仮）。</p>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:12px;">
-        <h3>参加費（例）</h3>
-        <p>
-          ・体験参加：○○円（仮）<br/>
-          ・通常参加：○○円／回（仮）<br/>
-          ・入会制度：任意（仮）<br/>
-          <small style="color: var(--muted);">※会場費・ボール代などの実費に合わせて調整してください。</small>
-        </p>
-      </div>
-    </section>
-
-    <section id="contact" aria-label="問い合わせ">
-      <div class="section-title">
-        <h2>問い合わせ</h2>
-        <p>返信が必要な方は連絡先を忘れずに</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>連絡先（例）</h3>
-          <p>
-            ・メール：example@example.com（仮）<br/>
-            ・SNS：@pickle_kanto（仮）<br/>
-            ・受付時間：平日 18:00〜22:00（仮）
-          </p>
-        </div>
-        <div class="card">
-          <h3>フォーム（ダミー）</h3>
-          <p style="margin-bottom:10px;">※このフォームは送信処理なし（見た目だけ）です。実運用はGoogleフォーム等に置き換えるのが簡単です。</p>
-
-          <form onsubmit="return fakeSubmit(event)">
-            <div style="display:grid; gap:10px;">
-              <label>
-                <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">お名前</div>
-                <input required type="text" placeholder="例：山田 太郎"
-                  style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);" />
-              </label>
-              <label>
-                <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">メール</div>
-                <input required type="email" placeholder="例：taro@example.com"
-                  style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);" />
-              </label>
-              <label>
-                <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">内容</div>
-                <textarea required rows="4" placeholder="体験参加希望。希望日程：…"
-                  style="width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);resize:vertical;"></textarea>
-              </label>
-              <button class="btn btn-primary" type="submit" style="justify-self:start;">送信（ダミー）</button>
-              <div id="toast" style="display:none;color:rgba(207,250,229,.92);font-size:13px;">
-                ✅ 送信したことにしておきました（実運用は送信先を設定してください）
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
+<section aria-label="ショートカット">
+  <div class="section-title">
+    <h2>はじめての方へ</h2>
+    <p>迷いやすい情報をまとめました</p>
   </div>
-</main>
 
-<footer>
-  <div class="container">
-    <div class="foot">
-      <div>© <span id="y"></span> 関東地区ピックル会</div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a class="btn" href="#top">ページ上部へ</a>
-        <a class="btn" href="#join">体験参加</a>
-      </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>練習日程</h3>
+      <p>直近の練習予定・持ち物・参加方法を確認できます。</p>
+      <p style="margin-top:10px;"><a class="btn btn-primary" href="schedule.html">練習日程を見る</a></p>
+    </div>
+    <div class="card">
+      <h3>体験参加</h3>
+      <p>体験参加の流れ・参加費（例）・注意点をまとめています。</p>
+      <p style="margin-top:10px;"><a class="btn btn-primary" href="join.html">体験参加の方法</a></p>
     </div>
   </div>
-</footer>
+</section>
 
-<script>
-  // スムーススクロール（同一ページ内リンク）
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      const el = document.querySelector(id);
-      if (!el) return;
-      e.preventDefault();
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.replaceState(null, '', id);
-    });
-  });
+    </div>
+  </main>
 
-  // ダミーフォーム送信
-  function fakeSubmit(e){
-    e.preventDefault();
-    const toast = document.getElementById('toast');
-    toast.style.display = 'block';
-    setTimeout(()=> toast.style.display = 'none', 3200);
-    e.target.reset();
-    return false;
-  }
-
-  // 年号
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+  <div id="site-footer"></div>
 </body>
 </html>
-
